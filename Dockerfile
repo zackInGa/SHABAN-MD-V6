@@ -5,9 +5,9 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     rm -rf /var/lib/apt/lists/*
 USER node
-RUN git clone https://github.com/MRSHABAN40/SK38.git /home/node/SK38
-WORKDIR /home/node/SK38
-RUN chmod -R 777 /home/node/SK38/
+RUN git clone https://github.com/shani-kh/MR.git /home/node/MR
+WORKDIR /home/node/MR
+RUN chmod -R 777 /home/node/MR/
 RUN yarn install --network-concurrency 1
 EXPOSE 7860
 ENV NODE_ENV=production
