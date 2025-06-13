@@ -56,139 +56,57 @@ reply(`❌ *Error Accurated !!*\n\n${e}`)
 }
 } )
 
-//kick
+//tagall
 
 cmd({
-    pattern: "remove",
-    alias: ["kick", "k"],
-    desc: "Removes a member from the group",
-    category: "admin",
-    react: "❌",
+    pattern: "tagall",
+    react: "🔊",
+    alias: ["gc_tagall"],
+    desc: "To Tag all Members",
+    category: "group",
+    use: '.tagall [message]',
     filename: __filename
 },
-async (conn, mek, m, {
-    from, q, isGroup, isBotAdmins, reply, quoted, senderNumber
-}) => {
-    // Check if the command is used in a group
-    if (!isGroup) return reply("❌ This command can only be used in groups.");
-
-    // Get the bot owner's number dynamically from conn.user.id
-    const botOwner = conn.user.id.split(":")[0];
-    if (senderNumber !== botOwner) {
-        return reply("❌ Only the bot owner can use this command.");
-    }
-
-    // Check if the bot is an admin
-    if (!isBotAdmins) return reply("❌ I need to be an admin to use this command.");
-
-    let number;
-    if (m.quoted) {
-        number = m.quoted.sender.split("@")[0]; // If replying to a message, get the sender's number
-    } else if (q && q.includes("@")) {
-        number = q.replace(/[@\s]/g, ''); // If mentioning a user
-    } else {
-        return reply("❌ Please reply to a message or mention a user to remove.");
-    }
-
-    const jid = number + "@s.whatsapp.net";
-
+async (conn, mek, m, { from, participants, reply, isGroup, senderNumber, groupAdmins, prefix, command, args, body }) => {
     try {
-        await conn.groupParticipantsUpdate(from, [jid], "remove");
-        reply(`✅ Successfully removed @${number}`, { mentions: [jid] });
-    } catch (error) {
-        console.error("Remove command error:", error);
-        reply("❌ Failed to remove the member.");
-    }
-});
+        if (!isGroup) return reply("❌ This command can only be used in groups.");
+        
+        const botOwner = conn.user.id.split(":")[0]; // Extract bot owner's number
+        const senderJid = senderNumber + "@s.whatsapp.net";
 
-// active members check 
-
-cmd({
-    pattern: "active",
-    alias: ["whosonline", "onlinemembers"],
-    desc: "Check who's online in the group (Admins & Owner only)",
-    category: "main",
-    react: "🟢",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, isGroup, isAdmins, isCreator, fromMe, reply }) => {
-    try {
-        // Check if the command is used in a group
-        if (!isGroup) return reply("❌ This command can only be used in a group!");
-
-        // Check if user is either creator or admin
-        if (!isCreator && !isAdmins && !fromMe) {
-            return reply("❌ Only bot owner and group admins can use this command!");
+        if (!groupAdmins.includes(senderJid) && senderNumber !== botOwner) {
+            return reply("❌ Only group admins or the bot owner can use this command.");
         }
 
-        // Inform user that we're checking
-        await reply("🔄 Scanning for online members... This may take 15-20 seconds.");
+        // Ensure group metadata is fetched properly
+        let groupInfo = await conn.groupMetadata(from).catch(() => null);
+        if (!groupInfo) return reply("❌ Failed to fetch group information.");
 
-        const onlineMembers = new Set();
-        const groupData = await conn.groupMetadata(from);
-        const presencePromises = [];
+        let groupName = groupInfo.subject || "Unknown Group";
+        let totalMembers = participants ? participants.length : 0;
+        if (totalMembers === 0) return reply("❌ No members found in this group.");
 
-        // Request presence updates for all participants
-        for (const participant of groupData.participants) {
-            presencePromises.push(
-                conn.presenceSubscribe(participant.id)
-                    .then(() => {
-                        // Additional check for better detection
-                        return conn.sendPresenceUpdate('composing', participant.id);
-                    })
-            );
+        let emojis = ['📢', '🔊', '🌐', '🔰', '❤‍🩹', '🤍', '🖤', '🩵', '📝', '💗', '🔖', '🪩', '📦', '🎉', '🛡️', '💸', '⏳', '🗿', '🚀', '🎧', '🪀', '⚡', '🚩', '🍁', '🗣️', '👻', '⚠️', '🔥'];
+        let randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // Proper message extraction
+        let message = body.slice(body.indexOf(command) + command.length).trim();
+        if (!message) message = "Attention Everyone"; // Default message
+
+        let teks = `▢ Group : *${groupName}*\n▢ Members : *${totalMembers}*\n▢ Message: *${message}*\n\n┌───⊷ *MENTIONS*\n`;
+
+        for (let mem of participants) {
+            if (!mem.id) continue; // Prevent undefined errors
+            teks += `${randomEmoji} @${mem.id.split('@')[0]}\n`;
         }
 
-        await Promise.all(presencePromises);
+        teks += "└──✪ SHABAN ┃ MD ✪──";
 
-        // Presence update handler
-        const presenceHandler = (json) => {
-            for (const id in json.presences) {
-                const presence = json.presences[id]?.lastKnownPresence;
-                // Check all possible online states
-                if (['available', 'composing', 'recording', 'online'].includes(presence)) {
-                    onlineMembers.add(id);
-                }
-            }
-        };
-
-        conn.ev.on('presence.update', presenceHandler);
-
-        // Longer timeout and multiple checks
-        const checks = 3;
-        const checkInterval = 5000; // 5 seconds
-        let checksDone = 0;
-
-        const checkOnline = async () => {
-            checksDone++;
-            
-            if (checksDone >= checks) {
-                clearInterval(interval);
-                conn.ev.off('presence.update', presenceHandler);
-                
-                if (onlineMembers.size === 0) {
-                    return reply("⚠️ Couldn't detect any online members. They might be hiding their presence.");
-                }
-                
-                const onlineArray = Array.from(onlineMembers);
-                const onlineList = onlineArray.map((member, index) => 
-                    `${index + 1}. @${member.split('@')[0]}`
-                ).join('\n');
-                
-                const message = `🟢 *Online Members* (${onlineArray.length}/${groupData.participants.length}):\n\n${onlineList}`;
-                
-                await conn.sendMessage(from, { 
-                    text: message,
-                    mentions: onlineArray
-                }, { quoted: mek });
-            }
-        };
-
-        const interval = setInterval(checkOnline, checkInterval);
+        conn.sendMessage(from, { text: teks, mentions: participants.map(a => a.id) }, { quoted: mek });
 
     } catch (e) {
-        console.error("Error in online command:", e);
-        reply(`An error occurred: ${e.message}`);
+        console.error("TagAll Error:", e);
+        reply(`❌ *Error Occurred !!*\n\n${e.message || e}`);
     }
 });
 
