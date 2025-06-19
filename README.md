@@ -55,7 +55,7 @@ href="https://github.com/MRSHABAN40/SHABAN-MD-V5/graphs/commit-activity"><img he
   </a></br>
 
 
-## _📡 DEPLOYMENT HEROKU COMING SOON WAITING FOR NEXT UPDATE_
+## _📡 DEPLOYMENT_
 
 <div align="center">
   <table>
