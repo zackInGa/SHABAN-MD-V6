@@ -3,7 +3,7 @@
     "description": "Whiskey Sockets Baileys Whatsapp bot By Mr Shaban",
     "logo": "https://i.ibb.co/qYtzFsVp/shaban-md.jpg",
     "keywords": ["bot"],
-    "documentation-link": "https://pti-pair.onrender.com/",
+    "documentation-link": "https://sbn-md-pair.zone.id/",
     "owner-verification": "talkdrovelover@gmail.com",
   
     "env": {
@@ -52,12 +52,6 @@
       "required": true,
       "value": "false"
     }, 
-    
-    "AUTO_BIO": {
-      "description": "Make it true if want auto about changing.",
-      "required": true,
-      "value": "false"  
-    },
 
     "AUTO_REPLY": {
       "description": "Make it true if you want automatic reply.",
@@ -128,12 +122,6 @@
       "description": "add caption for menu and other",
       "required": false,
       "value": "*© Gᴇɴᴇʀᴀᴛᴇᴅ ʙʏ Sʜᴀʙᴀɴ*"
-    },
-
-      "DELETE_LINKS": {
-      "description": "remove links from group automatically without removing member",
-      "required": false,
-      "value": "false"
     },
     
     "AUTO_RECORDING": {
