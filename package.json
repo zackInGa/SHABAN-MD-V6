@@ -1,7 +1,7 @@
 {
-  "name": "SHABAN-MD",
+  "name": "SHABAN-MD-V5",
   "version": "5.0.0",
-  "description": "A WhatsApp Bot Created By Mr Shaban",
+  "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name SHABAN-MD",
@@ -9,7 +9,8 @@
     "restart": "pm2 restart SHABAN-MD"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.16.0",
+    "npm": ">=11.4.1"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "npm:baileys-pro@latest",
