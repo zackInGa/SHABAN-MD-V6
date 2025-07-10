@@ -8,6 +8,9 @@
     "stop": "pm2 stop SHABAN-MD",
     "restart": "pm2 restart SHABAN-MD"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "@whiskeysockets/baileys": "npm:baileys-pro@latest",
     "@adiwajshing/keyed-db": "^0.2.4",
