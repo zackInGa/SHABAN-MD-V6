@@ -4,9 +4,7 @@
   "description": "A WhatsApp Bot Created By Mr Shaban",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name SHABAN-MD",
-    "stop": "pm2 stop SHABAN-MD",
-    "restart": "pm2 restart SHABAN-MD"
+    "start": "node index.js"
   },
   "engines": {
     "node": ">=20.0.0"
@@ -27,7 +25,6 @@
     "crypto-digest-sync": "^1.0.0",
     "crypto-js": "latest",
     "file_size_url": "1.0.4",
-    "fs": "^0.0.1-security",
     "fs-extra": "^11.1.0",
     "ffmpeg": "^0.0.4",
     "file-type": "^16.5.3",
