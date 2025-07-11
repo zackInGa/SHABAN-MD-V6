@@ -24,7 +24,7 @@
 </p> 
 
 <p align="center">
-  <a href="https://github.com/MRSHABAN40/SHABAN-MD"><img title="Release" src="https://img.shields.io/badge/Release-beta%20v5-cyan.svg?style=for-the-badge&logo=aqua" /></a>
+  <a href="https://github.com/MRSHABAN40/SHABAN-MD-V6"><img title="Release" src="https://img.shields.io/badge/Release-beta%20v6-cyan.svg?style=for-the-badge&logo=aqua" /></a>
 </p>
 
 
@@ -36,13 +36,13 @@
 
   
 <a
-href="https://github.com/MRSHABAN40/SHABAN-MD-V5/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>&nbsp;&nbsp;
+href="https://github.com/MRSHABAN40/SHABAN-MD-V6/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>&nbsp;&nbsp;
 </p>
 <p align='center'>
 
  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=monospace-ExtraBold&color=blue&lines=𝗙𝗢𝗥𝗞+𝗔𝗡𝗗+𝗦𝗧𝗔𝗥+⭐+𝗥𝗘𝗣𝗢)](https://git.io/typing-svg)
  <p align="lift">
- <a href="https://github.com/MRSHABAN40/SHABAN-MD-V5/fork"><img title="SHABAN-MD-V5" src="https://img.shields.io/badge/FORK-SHABAN MD V5-h?color=008000&style=for-the-badge&logo=github"></a>
+ <a href="https://github.com/MRSHABAN40/SHABAN-MD-V6/fork"><img title="SHABAN-MD-V6" src="https://img.shields.io/badge/FORK-SHABAN MD V6-h?color=008000&style=for-the-badge&logo=github"></a>
  
 
   **⛓️‍💥 NEW SESSION WEB ADDED √**
