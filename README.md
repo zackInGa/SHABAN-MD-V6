@@ -17,9 +17,6 @@
 
 ---------
 
- <p align="center"><img src="https://profile-counter.glitch.me/{SHABAN-MD}/count.svg" alt="MRSHABAN40 :: Visitor's Count" old_src="https://profile-counter.glitch.me/{MRSHABAN40}/count.svg" /></p>
-
-
 <p align="center">
 <a href="https://github.com/MRSHABAN/SHABAN-MD"><img title="PUBLIC-BOT" src="https://img.shields.io/static/v1?label=Language&message=English&style=square&color=darkpink"></a> &nbsp;
   <img src="https://komarev.com/ghpvc/?username=SHABAN-MD&label=VIEWS&style=square&color=blue" />
