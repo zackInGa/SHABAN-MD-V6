@@ -1,10 +1,10 @@
 {
-  "name": "Render-Deploy",
+  "name": "SHABAN-MD-V6",
   "version": "5.0.0",
   "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "pm2-runtime index.js --name SHABAN-MD"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "npm:baileys-pro@latest",
@@ -24,7 +24,6 @@
     "file_size_url": "1.0.4",
     "fs-extra": "^11.1.0",
     "ffmpeg": "^0.0.4",
-    "file-type": "^16.5.3",
     "fluent-ffmpeg": "^2.1.0",
     "form-data": "^4.0.0",
     "google-tts-api": "^2.0.2",
