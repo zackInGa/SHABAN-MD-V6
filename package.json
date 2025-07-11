@@ -1,5 +1,5 @@
 {
-  "name": "SHABAN",
+  "name": "Ultimate-New",
   "version": "5.0.0",
   "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
@@ -18,7 +18,7 @@
     "util": "^0.12.4",
     "express": "latest",
     "moment-timezone": "^0.6.0",
-    "axios": "^1.10.0",
+    "axios": "^1.7.9",
     "crypto-digest-sync": "^1.0.0",
     "crypto-js": "latest",
     "file_size_url": "1.0.4",
