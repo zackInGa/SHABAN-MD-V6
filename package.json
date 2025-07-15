@@ -20,7 +20,7 @@
     "moment-timezone": "^0.6.0",
     "axios": "^1.7.9",
     "crypto-digest-sync": "^1.0.0",
-    "crypto-js": "latest",
+    "crypto-js": "^4.2.0",
     "file_size_url": "1.0.4",
     "fs-extra": "^11.1.0",
     "ffmpeg": "^0.0.4",
