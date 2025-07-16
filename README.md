@@ -1,5 +1,5 @@
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=100&pause=1000&color=FFD700&center=true&width=1000&height=200&lines=SHABAN-MD" alt="Typing SVG" /></a>
-  </div>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=F70D1A&center=true&width=810&height=100&lines=+SHABAN-MD-V6;IS+THE+UPDATE+VERSION;OF+SHABAN-MD-V5;BEST+MULTI+DEVICE+BOT;CREATED+BY+MRSHABAN+40" alt="Typing SVG" /></a>
+  </p>
 <a><img src='https://i.ibb.co/R4GYRMdP/shaban-md.jpg'/></a>
 
 <p align="center">
